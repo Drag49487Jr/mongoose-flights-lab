@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<table>
+<table id = "list">
     <thead>
         <tr>
             <th>Airline</th>
@@ -13,8 +13,8 @@
                 <td><%= f.airline %></td>
                 <td><%= f.flightNo %></td>
                 <td><%= f.departs %></td>
+                <td><a href = "/flights/<%= f._id %>">Details</a></td>
             </tr>
-            <td><a href = "/flights/<%= f._id %>">Details</a></td>
         <% }); %>
     </tbody>
 </table>

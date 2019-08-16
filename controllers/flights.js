@@ -25,9 +25,10 @@ function create(req, res) {
     for(let key in req.body) {
         if(req.body[key] === '') delete req.body[key];
     }
-    var flight = new Flight(req.body)
-    flight.save(function(err){
-        console.log(flight);
+    var newFlight = new Flight(req.body);
+    newFlight.save(function(err) {
+        console.log(err)
+        console.log(newFlight);
         //if(err) return res.redirect('/flights/new');
         res.redirect('/flights');
     });
