@@ -1,8 +1,17 @@
+<div class = "row">
+    <div class = "col-3">
+        <button type = "button" class = "btn btn-success">
+            <a href = "/flights/new">Add Flights</a>
+        </button>
+        <button type = "button" class = "btn btn-success">
+            <a href = "/">Home Page</a>
+        </button>
+        <div class = "col-2"></div>
+    </div>
+</div>
 <%- include('../partials/header') %>
-<table id = "list">
+<table class = "table table-bordered table-hover" id = "list">
     <thead>
-        <a href = "/flights/new">Add Flights</a>
-        <a href = "/">Home Page</a>
         <tr>
             <th>Airline</th>
             <th>FlightNo</th>
@@ -17,10 +26,11 @@
                 <td><%= f.flightNo %></td>
                 <td><%= f.departs %></td>
                 <td><%= f.airport %></td>
-                <td><a href = "/flights/<%= f._id %>">Details</a></td>
+                <td class = "btn btn-light"><a href = "/flights/<%= f._id %>">Details</a></td>
             </tr>
-        <% }); %>
-    </tbody>
-</table>
+            <% }); %>
+        </tbody>
+    </table>
+
 
 <%- include('../partials/footer') %>
