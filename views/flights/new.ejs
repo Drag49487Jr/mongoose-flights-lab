@@ -3,17 +3,31 @@
         <form id="new-form" action="/flights" method="POST">
             <label>Airline
               <select name="airline">
-                <option value="american">american</option>
-                <option value="southwest">southwest</option>
-                <option value="united">united</option>
+                <option value="American">American</option>
+                <option value="Southwest">SouthWest</option>
+                <option value="United">United</option>
               </select>
+            </label>
+
+            <label>Airport
+              <select name = "airport">
+                <option value = "AUS">AUS</option>
+                <option value = "DAL">DAL</option>
+                <option value = "LAX">LAX</option>
+                <option value = "SEA">SEA</option>
+              </select>
+            </label>
+
             <label>FlightNo
-              <input type="text" name="flightNo">
+              <input type = "text" name = "flightNo">
             </label><br>
+
             <label>Departs
             </label><br>
-            <input type="date" name="departs">
-            <input type="submit" value="Add Flight">
+            <input type = "datetime-local" name = "departs">
+            </label>
+            
+            <input type = "submit" value = "Add Flight">
         </form>
 
 <%- include('../partials/footer') %>

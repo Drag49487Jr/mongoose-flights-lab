@@ -14,9 +14,12 @@ function index(req, res) {
 }
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight){
-        res.render('flights/show', {title: 'Movie Detail', flight});
-    });
-}
+        if(err) return res.redirect('flights/new');
+        console.log(flight);
+        res.render('flights/show', { title: 'Flight Detail', flight });
+    })
+    };
+
 function newFlight(req, res) {
     res.render('flights/new', {title: 'All Flights'});
 };
@@ -29,7 +32,7 @@ function create(req, res) {
     newFlight.save(function(err) {
         console.log(err)
         console.log(newFlight);
-        //if(err) return res.redirect('/flights/new');
-        res.redirect('/flights');
+        //if(err) return res.redirect('/flights/');
+        res.redirect(`/flights`);
     });
 }

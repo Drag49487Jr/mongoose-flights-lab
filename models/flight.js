@@ -6,20 +6,32 @@ var destinationSchema = new Schema ({
         type:String,
         enum: ['AUS', 'DAL', 'LAX', 'SEA']
     },
-    arrival:Date,
+    arrival:{
+        type: Date,
+        // default: function() {
+        //     const date = new Date();
+        //     const updatedYear = date.getFullYear() + 1;
+        //     date.setFullYear(updatedYear);
+        //     return date;
+        // }
+    }
 }, {
-    timestamps: true
+    timestamps:true
 });
 
 var flightSchema = new Schema ({
     airline: {
        type: String,
-       enum: ['american', 'southwest', 'united']
+       enum: ['American', 'Southwest', 'United']
     },
     flightNo:{
         type: Number,
         min: 10,
         max: 9999
+    },
+    airport:{
+        type: String,
+        enum: ['AUS', 'DAL', 'LAX', 'SEA'],
     },
     departs:{
         type: Date,
@@ -29,7 +41,8 @@ var flightSchema = new Schema ({
             date.setFullYear(updatedYear);
             return date;
         },
-    }, destinations: [destinationSchema],
+    },
+    destinations: [destinationSchema],
 }, {
     timestamps:true
 });
